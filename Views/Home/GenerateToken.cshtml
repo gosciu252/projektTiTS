@@ -1,0 +1,36 @@
+﻿@using AspNetIdentitySample.Models
+@model GenerateTokenViewModel
+
+@{
+    ViewData["Title"] = "Generowanie tokenu";
+}
+
+@if (!string.IsNullOrEmpty(Model.Token))
+{
+    <div>
+        Twój jednorazowy token do głosowania to: @Model.Token
+
+        <br /><br />
+
+        Skopiuj i zapisz token w bezpiecznym miejscu - możesz go wygenerować tylko raz! Możesz teraz się wylogować i przejść do głosowania.
+    </div>
+}
+else if (Model.AlreadyGenerated)
+{
+    <div>
+        Token został już wygerowany dla Twojego konta. Nie możesz dokonać tego po raz drugi.
+    </div>
+}
+else
+{
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <div>
+            Aby wygenerować jednorazowy token do głosowania dla Twojego konta, naciśnij przyisk poniżej. <br />
+            Następnie skopiuj i zapisz token w bezpiecznym miejscu - możesz go wygenerować tylko raz!
+
+            <br /><br />
+            <button type="submit">Generuj</button>
+        </div>
+    }
+}

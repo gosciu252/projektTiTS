@@ -1,0 +1,14 @@
+﻿@using AspNetIdentitySample.Models
+@model LoginToVoteViewModel
+
+@using(Html.BeginForm(FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Wprowadź token:</label>
+        @Html.TextBoxFor(m => m.Token, null, new { @class = "form-control" })
+        <br />
+        @Html.ValidationMessageFor(m => m.Token)
+    </div>
+
+    <button class="btn btn-success" type="submit">Przejdź do głosowania</button>
+}

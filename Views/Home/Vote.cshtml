@@ -1,0 +1,17 @@
+﻿@using AspNetIdentitySample.Services
+@model VoteViewModel
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    /* Wyświetlenie błędów z ModelState */
+    @Html.ValidationSummary()
+
+    /* Wygenerowanie listy kandydatów w formie przycisków "radio" */
+    foreach (var candidate in Model.Candidates)
+    {
+        @Html.RadioButtonFor(m => m.CandidateId, candidate.ID) @candidate.FullName
+        <br />
+    }
+
+    <button class="btn btn-success" type="submit">Głosuj</button>
+}

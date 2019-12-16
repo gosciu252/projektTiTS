@@ -1,0 +1,22 @@
+﻿@using AspNetIdentitySample.Models.Database
+@model List<Candidate>
+
+<b>Wyniki głosowania</b>
+
+<br />
+<br />
+
+<table>
+    <tr>
+        <td>Nazwisko</td>
+        <td>Liczba głosów</td>
+    </tr>
+
+    @foreach (var candidate in Model)
+    {
+        <tr>
+            <td>@candidate.FullName</td>
+            <td>@candidate.VotesCount</td>
+        </tr>
+    }
+</table>
